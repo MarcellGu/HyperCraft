@@ -58,7 +58,7 @@ export async function fetchAvailableModels(): Promise<Model[]> {
 }
 
 // 模型选择的本地存储管理
-const MODEL_STORAGE_KEY = 'hypercraft_selected_model';
+const MODEL_STORAGE_KEY = 'HyperCraftSelectedModel';
 
 export function getSelectedModel(): string {
     if (typeof window !== 'undefined') {
