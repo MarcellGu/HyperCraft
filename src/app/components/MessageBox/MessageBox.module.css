@@ -1,0 +1,55 @@
+.messageBox {
+    position: relative;
+    width: 720px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;;
+}
+
+.container {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+.textarea {
+    width: 100%;
+    cursor: text;
+    color: var(--color-text-primary);
+    background-color: var(--color-background-primary);
+    resize: none;
+    font-size: 16px;
+    font-family: "HarmonyOS Sans", sans-serif;
+    padding: 10px;
+    transition: all 0.2s ease;
+}
+
+.textarea:focus {
+    outline: none;
+}
+
+.disabled {
+    cursor: not-allowed;
+    color: var(--color-text-secondary);
+    background-color: var(--color-background-primary);
+}
+
+
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.left, .right {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}

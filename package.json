@@ -1,0 +1,39 @@
+{
+  "name": "hypercraft",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Modern Chat Interface With Simple Design",
+  "homepage": "https://github.com/MarcellGu/HyperCraft#readme",
+  "bugs": {
+    "url": "https://github.com/MarcellGu/HyperCraft/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcellGu/HyperCraft.git"
+  },
+  "license": "Apache-2.0",
+  "author": "Marcell Gu",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@iconify/react": "^6.0.0",
+    "next": "15.4.1",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-markdown": "^10.1.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@svgr/core": "^8.1.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.1",
+    "typescript": "^5"
+  }
+}
