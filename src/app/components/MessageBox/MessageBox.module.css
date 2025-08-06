@@ -23,6 +23,7 @@
     cursor: text;
     color: var(--color-text-primary);
     background-color: var(--color-background-primary);
+    border: none;
     resize: none;
     font-size: 16px;
     font-family: "HarmonyOS Sans", sans-serif;

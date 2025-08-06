@@ -17,7 +17,7 @@ interface MessageBoxProps {
 
 function MessageBox({placeholder, style, sendMessage}: MessageBoxProps) {
     const ref = React.useRef<HTMLDivElement>(null);
-    const {borderRadius, fill, stroke, strokeWidth, ...rest} = style;
+    const {borderRadius, fill, stroke, strokeWidth, margin, padding} = style;
     const size = useElementSize(ref);
     const [value, setValue] = React.useState("");
     const textareaRef = React.useRef<HTMLTextAreaElement>(null);
@@ -53,10 +53,9 @@ function MessageBox({placeholder, style, sendMessage}: MessageBoxProps) {
         <SquircleFrame style={{
             borderRadius, fill, stroke, strokeWidth, width: size.width, height: size.height
         }}/>
-        <div className={styles.container} style={rest}>
+        <div className={styles.container} style={{margin, padding}}>
             <textarea className={styles.textarea}
                       placeholder={placeholder}
-                      style={{...style, resize: "none"}}
                       value={value}
                       rows={2}
                       ref={textareaRef}

@@ -1,7 +1,4 @@
-@import "./lib/colors/lightDefault.css";
-@import "./lib/colors/darkDefault.css";
-@import "./lib/colors/lightContrast.css";
-@import "./lib/colors/darkContrast.css";
+@import "./lib/colors.css";
 
 :root {
     --color-info: var(--color-blue);
