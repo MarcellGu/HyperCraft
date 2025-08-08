@@ -1,0 +1,19 @@
+/* 响应式布局：根据窗口宽度调整样式 */
+:root {
+    --layout-mode: desktop; /* 默认布局模式为桌面端 */
+}
+
+/* 移动端（小于600px） */
+@media (max-width: 599px) {
+    --layout-mode: mobile; /* 设置布局模式为移动端 */
+}
+
+/* 平板端（600px-1023px） */
+@media (min-width: 600px) and (max-width: 1023px) {
+    --layout-mode: tablet; /* 设置布局模式为平板端 */
+}
+
+/* 桌面端（大于等于1024px） */
+@media (min-width: 1024px) {
+    --layout-mode: desktop; /* 设置布局模式为桌面端 */
+}
