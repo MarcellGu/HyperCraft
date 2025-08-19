@@ -1,6 +1,4 @@
-import React from "react";
-
-export interface LayerProps {
+interface LayerProps {
     children?: React.ReactNode;
 }
 

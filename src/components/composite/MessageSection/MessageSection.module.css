@@ -1,0 +1,40 @@
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.message {
+    color: var(--color-text-primary);
+    padding: 10px;
+    border-radius: 10px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+/* 确保代码块样式正确 */
+.message :global pre {
+    border-radius: 6px;
+    padding: 16px;
+}
+
+.user {
+    /* 用户消息样式 */
+    background-color: var(--color-background-secondary);
+    margin-left: auto;
+    max-width: 90%;
+}
+
+.assistant {
+    /* 助手消息样式 */
+    width: 100%;
+}
+
+.system {
+    /* 系统消息样式 */
+    color: #999;
+    text-align: center;
+    max-width: 60%;
+}

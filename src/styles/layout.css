@@ -1,19 +1,60 @@
-/* 响应式布局：根据窗口宽度调整样式 */
 :root {
-    --layout-mode: desktop; /* 默认布局模式为桌面端 */
+    --space-size: 16px;
 }
 
-/* 移动端（小于600px） */
-@media (max-width: 599px) {
-    --layout-mode: mobile; /* 设置布局模式为移动端 */
+.layer {
+    position: fixed;
+    top: var(--space-size);
+    bottom: var(--space-size);
+    left: var(--space-size);
+    right: var(--space-size);
 }
 
-/* 平板端（600px-1023px） */
-@media (min-width: 600px) and (max-width: 1023px) {
-    --layout-mode: tablet; /* 设置布局模式为平板端 */
+.background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--color-background-primary);
+    z-index: 0;
 }
 
-/* 桌面端（大于等于1024px） */
-@media (min-width: 1024px) {
-    --layout-mode: desktop; /* 设置布局模式为桌面端 */
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    z-index: 100;
+}
+
+.modal {
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    z-index: 200;
+}
+
+.toast {
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    z-index: 300;
+}
+
+.overlay {
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    z-index: 400;
 }
