@@ -1,18 +1,32 @@
 'use client'
-import React from "react";
+import React, {useEffect, useRef} from "react";
 import styles from "./InputBox.module.css"
 import InputProps from "@/types/properties/input";
 import CapsuleButton from "@/components/atomic/button/CapsuleButton/CapsuleButton";
 
 function InputBox({input, setInput, sendMessage, style}: InputProps) {
 
+    const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+    const adjustHeight = () => {
+        if (textareaRef.current) {
+            textareaRef.current.style.height = 'auto';
+            textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 256)}px`;
+        }
+    }
+
+    useEffect(() => {
+        adjustHeight();
+    }, [sendMessage]);
+
     return <form id={"InputBox"} className={styles.inputBox} style={style}>
         <div id={"InputContainer"} className={styles.textContainer}>
-        <textarea className={styles.textarea}
+        <textarea ref={textareaRef} className={styles.textarea}
                   placeholder={"询问任何问题"}
                   style={{resize: "none"}}
                   value={input}
                   rows={2}
+                  onInput={adjustHeight}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(event) => {
                       if ((event.metaKey || event.ctrlKey) && event.key === "Enter") {

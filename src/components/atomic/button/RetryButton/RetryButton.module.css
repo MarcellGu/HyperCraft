@@ -1,0 +1,28 @@
+.button {
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 0;
+}
+
+.button svg {
+    transition: fill 0.1s ease;
+}
+
+.button:hover svg {
+    fill: var(--color-background-secondary, transparent) !important;
+}
+
+.icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 18px;
+    height: 18px;
+    color: var(--color-text-primary);
+    z-index: 1;
+}
