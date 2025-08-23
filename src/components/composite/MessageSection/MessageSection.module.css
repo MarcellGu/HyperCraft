@@ -32,7 +32,7 @@
     /* 用户消息样式 */
     background-color: var(--color-background-secondary);
     margin-left: auto;
-    max-width: 90%;
+    max-width: 60%;
 }
 
 .assistant {

@@ -22,56 +22,13 @@ function Page() {
         if (input) {
             addMessage("user", input);
             setInput('');
-
-            // 创建一个新的assistant消息，用于流式更新
-            addMessage("assistant", "");
-
             // 发送请求
             const response = await fetch('/api/chat', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    messages: [{role: "user", content: input}],
-                    model: "glm-4.5-x"
-                })
+                body: JSON.stringify({messages: messages})
             });
-
-            // 处理流式响应
-            if (response.body) {
-                const reader = response.body.getReader();
-                const decoder = new TextDecoder();
-                let assistantMessage = "";
-
-                try {
-                    while (true) {
-                        const {done, value} = await reader.read();
-                        if (done) break;
-
-                        // 解码数据
-                        const chunk = decoder.decode(value, {stream: true});
-                        assistantMessage += chunk;
-
-                        // 更新assistant消息
-                        setMessages(prevMessages => {
-                            const newMessages = [...prevMessages];
-                            const lastMessage = newMessages[newMessages.length - 1];
-                            if (lastMessage.role === "assistant") {
-                                newMessages[newMessages.length - 1] = {
-                                    ...lastMessage,
-                                    content: assistantMessage
-                                };
-                            }
-                            return newMessages;
-                        });
-                    }
-                } catch (error) {
-                    console.error("Error reading stream:", error);
-                } finally {
-                    reader.releaseLock();
-                }
-            }
+            const data = await response.json();
+            addMessage("assistant", data.response);
         }
     }
     // 鼠标移动时显示侧边栏
@@ -104,7 +61,7 @@ function Page() {
         <header className={styles.header}>
         </header>
         <main className={styles.main}>
-            <MessageSection messages={messages}/>
+            <MessageSection messages={messages} style={{position: messages.length === 0 ? "absolute" : "relative"}}/>
             <InputBox input={input} setInput={setInput}
                       sendMessage={sendMessage}/>
         </main>

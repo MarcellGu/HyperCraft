@@ -1,0 +1,89 @@
+.assistant-message-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: calc(100% - 2rem);
+    padding-bottom: 0.5rem;
+    align-items: flex-start;
+}
+
+/* Fallback for CSS custom properties */
+.assistant-message-container {
+    --content-max-width: calc(100% - 2rem);
+    --text-primary: #333;
+    --surface-l2: #f0f0f0;
+    --border-l1: #e0e0e0;
+}
+
+@media (prefers-color-scheme: dark) {
+    .assistant-message-container {
+        --text-primary: #ffffff;
+        --surface-l2: #2d2d2d;
+        --border-l1: #444444;
+    }
+}
+
+.message-bubble {
+    color: var(--text-primary);
+    min-height: 1.75rem;
+    word-break: break-word;
+    background-color: var(--surface-l2);
+    border: 1px solid var(--border-l1);
+    max-width: 100%;
+    padding: 1rem 1.5rem;
+    border-radius: 1.5rem 1.5rem 1.5rem 0.5rem;
+}
+
+.message-content {
+    white-space: pre-wrap;
+}
+
+.inline-media-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.message-actions {
+    order: -1;
+    position: sticky;
+    top: 2.75rem;
+    height: 0;
+    opacity: 0;
+    margin-left: -36px;
+}
+
+@media (min-width: 768px) {
+    .message-actions {
+        display: block;
+    }
+}
+
+@media (min-width: 1024px) {
+    .message-actions {
+        margin-left: -3rem;
+    }
+}
+
+.action-buttons {
+    min-height: 1.75rem;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+}
+
+/* Focus and hover states for message actions */
+.assistant-message-container:focus-within .message-actions,
+.assistant-message-container:hover .message-actions {
+    opacity: 1;
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+    .message-bubble {
+        max-width: 90%;
+    }
+}

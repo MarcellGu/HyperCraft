@@ -1,0 +1,19 @@
+.container {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 10px;
+}
+
+.message {
+    max-width: 60%;
+    background-color: var(--color-background-secondary);
+    padding: 10px;
+    border-radius: 15px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
